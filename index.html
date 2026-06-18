@@ -83,6 +83,15 @@ td .num{font-size:22px;font-weight:800;color:var(--ink)}
 .bimcol .foot{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;font-size:12px;color:var(--dim)}
 .pass{color:#7ddf8e;font-weight:700}
 .bimlink-mid{text-align:center;margin-top:14px;color:var(--dim);font-size:13px}
+.bimcol.pb .media{position:relative}
+.bimcol.pb .media img,.bimcol.pb .media iframe{width:100%;height:360px;display:block;border:0}
+.bimcol.pb .media img{object-fit:cover}
+.bimcol.pb .media iframe{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .35s;background:#0e0f14}
+.bimcol.pb.show-bim .media img{visibility:hidden}
+.bimcol.pb.show-bim .media iframe{opacity:1;pointer-events:auto}
+.pbtab{position:absolute;top:12px;right:12px;z-index:4;display:flex;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.22);border-radius:20px;overflow:hidden;backdrop-filter:blur(5px)}
+.pbtab button{background:transparent;border:0;color:#fff;font-size:12px;padding:6px 15px;cursor:pointer;transition:.2s}
+.pbtab button.on{background:var(--gold);color:#1a0d04;font-weight:700}
 
 .badge{display:inline-block;font-size:12px;padding:4px 11px;border-radius:20px;border:1px solid var(--line);color:var(--dim);margin:3px 4px 0 0}
 .legal{background:rgba(255,80,60,.07);border:1px solid rgba(255,90,60,.35);border-radius:14px;padding:22px;margin-top:30px}
@@ -184,22 +193,26 @@ footer{padding:40px 20px;text-align:center;color:var(--dim);font-size:12px;borde
 
 <section id="bim">
   <div class="wrap">
-    <div class="eyebrow">BIM · 一体と個別を、一画面で</div>
-    <h2>村全体も、一棟も、同じ画面で行き来する。</h2>
-    <p class="lead">設計は <a href="https://bim.house" target="_blank" rel="noopener">bim.house</a>。言葉から建ち、建築基準法をその場で判定。<b style="color:var(--gold)">一体</b>＝村全体の配置（16棟・構造バランス <span class="pass">PASS</span>）、<b style="color:var(--snow)">個別</b>＝買って建てる1棟（houki・構造ともに <span class="pass">PASS</span>）。</p>
+    <div class="eyebrow">Render × BIM · パースとBIMが、一緒になる</div>
+    <h2>完成イメージと、実モデル。同じ枠で、切り替える。</h2>
+    <p class="lead">夢（パース）と、建つ証拠（<a href="https://bim.house" target="_blank" rel="noopener">bim.house</a> のBIM）を、同じ画面に重ねる。
+    <b style="color:var(--gold)">一体</b>＝村全体の配置（16棟・構造 <span class="pass">PASS</span>）、<b style="color:var(--snow)">個別</b>＝建てる1棟（houki・構造ともに <span class="pass">PASS</span>）。</p>
+
     <div class="bimwrap">
-      <div class="bimcol">
+      <div class="bimcol pb" data-bim="https://bim.house/u-100-sps7g2ip">
+        <div class="pbtab"><button class="on" data-m="render">パース</button><button data-m="bim">BIM</button></div>
         <span class="tag gold">一体 · 村全体（16棟・100人）</span>
-        <iframe src="https://bim.house/u-100-sps7g2ip" loading="lazy" title="六芒星ビレッジ全体 BIM"></iframe>
+        <div class="media"><img src="img/hero.png" alt="村全体パース"><iframe loading="lazy" title="六芒星ビレッジ全体 BIM"></iframe></div>
         <div class="foot"><span>六芒星ビレッジ 全体配置</span><span class="pass">構造 ✓（配置16棟）</span></div>
       </div>
-      <div class="bimcol">
+      <div class="bimcol pb" data-bim="https://bim.house/u-house-bje402lx">
+        <div class="pbtab"><button class="on" data-m="render">パース</button><button data-m="bim">BIM</button></div>
         <span class="tag">個別 · 六芒星キャビン1棟</span>
-        <iframe src="https://bim.house/u-house-bje402lx" loading="lazy" title="六芒星キャビン1棟 BIM"></iframe>
+        <div class="media"><img src="img/cabin.png" alt="個別棟パース"><iframe loading="lazy" title="六芒星キャビン1棟 BIM"></iframe></div>
         <div class="foot"><span>六芒星キャビン 個別棟</span><span class="pass">houki ✓ / 構造 ✓</span></div>
       </div>
     </div>
-    <p class="bimlink-mid">↔ 同じ村の「一体（村全体の配置）」と「個別（建てる1棟）」を、同じ画面で行き来する。houki は建てる単位＝個別棟で担保。</p>
+    <p class="bimlink-mid">「パース」で夢を見て、「BIM」で建つことを確かめる。同じ村の、一体と個別を、同じ画面で。</p>
   </div>
 </section>
 
@@ -324,6 +337,19 @@ document.getElementById('goBtn').onclick = ()=>{
   document.getElementById('start').style.display='none';
   playing = true; show(0);
 };
+
+// パース ⇄ BIM トグル
+document.querySelectorAll('.bimcol.pb').forEach(col=>{
+  const ifr = col.querySelector('iframe'), bim = col.dataset.bim;
+  col.querySelectorAll('.pbtab button').forEach(btn=>{
+    btn.onclick = ()=>{
+      col.querySelectorAll('.pbtab button').forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on');
+      if(btn.dataset.m==='bim'){ if(!ifr.src) ifr.src = bim; col.classList.add('show-bim'); }
+      else col.classList.remove('show-bim');
+    };
+  });
+});
 </script>
 </body>
 </html>
