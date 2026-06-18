@@ -3,7 +3,7 @@
 北海道・弟子屈・美留和に建てる**六芒星のリトリート村**の、本人の声で読む紙芝居＋販売資料。
 A self-narrated kamishibai pitch + sales deck for a hexagram-shaped retreat village in Teshikaga, Hokkaido.
 
-**Live:** https://yukihamada.github.io/hexagram-village/
+**Live:** https://hexagram-village.pages.dev/
 
 ## 意味 / The meaning
 六芒星＝二つの三角。のぼる三角＝**体・頭・祭**（道場・AI・音楽フェス）、くだる三角＝**泊・食・癒**（宿・食堂・温泉）。中心に火と大ドーム道場。

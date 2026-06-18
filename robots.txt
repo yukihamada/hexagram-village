@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yukihamada.github.io/hexagram-village/sitemap.xml
+Sitemap: https://hexagram-village.pages.dev/sitemap.xml
