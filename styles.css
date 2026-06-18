@@ -73,6 +73,7 @@ table{width:100%;border-collapse:collapse;margin-top:36px;font-size:15px}
 th,td{padding:14px 12px;text-align:left;border-bottom:1px solid var(--line)}
 th{color:var(--gold);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
 td .num{font-size:22px;font-weight:800;color:var(--ink)}
+td .usd{font-size:12px;color:var(--dim)}
 
 /* BIM dual viewer */
 .bimwrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px}
