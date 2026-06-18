@@ -1,2 +1,12 @@
-shot_*.png
+# secrets — never commit
+.env
+.env.*
+*.key
+*.pem
+*secret*
+*token*
+*credentials*
+
+# os / scratch
 .DS_Store
+shot_*.png

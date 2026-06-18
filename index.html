@@ -4,9 +4,43 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>白から、組む。｜六芒星の村 — 弟子屈・美留和</title>
-<meta name="description" content="弟子屈・美留和に建てる六芒星の村。泊まる・組む・祭る。本人の声で読む紙芝居＋販売資料。">
+<meta name="description" content="北海道・弟子屈・美留和に建てる六芒星のリトリート村。泊まる・組む・祭る。本人の声で読む紙芝居と、bim.houseの実BIM（一体＝村全体／個別＝1棟）を一画面で見られる販売資料。初期10人から将来100人へ。">
+<link rel="canonical" href="https://yukihamada.github.io/hexagram-village/">
+<link rel="alternate" hreflang="ja" href="https://yukihamada.github.io/hexagram-village/">
+<link rel="alternate" hreflang="en" href="https://yukihamada.github.io/hexagram-village/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://yukihamada.github.io/hexagram-village/">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#0b0c10">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yukihamada.github.io/hexagram-village/">
+<meta property="og:site_name" content="六芒星の村 / Hexagram Village">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:title" content="白から、組む。｜六芒星の村">
-<meta property="og:description" content="泊まる・組む・祭る。六芒星の村を、白から組む。">
+<meta property="og:description" content="泊まる・組む・祭る。六芒星のリトリート村を、白から組む。初期10人→将来100人。">
+<meta property="og:image" content="https://yukihamada.github.io/hexagram-village/img/hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="白から、組む。｜六芒星の村">
+<meta name="twitter:description" content="泊まる・組む・祭る。六芒星のリトリート村を、白から組む。">
+<meta name="twitter:image" content="https://yukihamada.github.io/hexagram-village/img/hero.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "WebSite", "@id": "https://yukihamada.github.io/hexagram-village/#website",
+     "url": "https://yukihamada.github.io/hexagram-village/",
+     "name": "六芒星の村 / Hexagram Village",
+     "inLanguage": ["ja", "en"],
+     "description": "弟子屈・美留和に建てる六芒星のリトリート村。泊まる・組む・祭る。"},
+    {"@type": "Place", "@id": "https://yukihamada.github.io/hexagram-village/#place",
+     "name": "六芒星の村（弟子屈・美留和）",
+     "description": "中心に火と大ドーム道場、六芒星に配置したキャビンの村。初期10人から将来100人へ。",
+     "image": "https://yukihamada.github.io/hexagram-village/img/hero.png",
+     "address": {"@type": "PostalAddress", "addressRegion": "北海道", "addressLocality": "川上郡弟子屈町美留和", "addressCountry": "JP"},
+     "geo": {"@type": "GeoCoordinates", "latitude": 43.5553722, "longitude": 144.437616}}
+  ]
+}
+</script>
 <style>
 :root{
   --bg:#0b0c10; --ink:#f4efe6; --dim:#a7a092; --line:#2a2c34;
@@ -105,6 +139,9 @@ td .num{font-size:22px;font-weight:800;color:var(--ink)}
 .btn.fire{background:var(--fire);color:#1a0d04}
 .btn.ghost{border:1px solid var(--line);color:var(--ink)}
 footer{padding:40px 20px;text-align:center;color:var(--dim);font-size:12px;border-top:1px solid var(--line)}
+#langToggle{position:fixed;top:14px;right:14px;z-index:50;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.28);
+  color:#fff;font-size:12px;font-weight:700;letter-spacing:.06em;padding:8px 14px;border-radius:20px;cursor:pointer;backdrop-filter:blur(6px)}
+#langToggle:hover{background:rgba(255,255,255,.18)}
 
 @media(max-width:760px){
   .cols-3,.cols-2,.bimwrap{grid-template-columns:1fr}
@@ -113,6 +150,8 @@ footer{padding:40px 20px;text-align:center;color:var(--dim);font-size:12px;borde
 </style>
 </head>
 <body>
+
+<button id="langToggle" aria-label="Switch language">EN</button>
 
 <!-- ===================== 紙芝居プレイヤー ===================== -->
 <div id="player">
@@ -128,9 +167,9 @@ footer{padding:40px 20px;text-align:center;color:var(--dim);font-size:12px;borde
   </div>
 
   <div id="start">
-    <h1>白から、組む。</h1>
-    <p>弟子屈・美留和に建てる、六芒星の村。<br>泊まる・組む・祭る。本人の声で、ご覧ください。</p>
-    <button class="go" id="goBtn">▶ 本人の声で観る</button>
+    <h1 data-en="From white, we build.">白から、組む。</h1>
+    <p data-en="A hexagram village in Teshikaga, Hokkaido.<br>Stay · grapple · celebrate. Narrated in our own voice.">弟子屈・美留和に建てる、六芒星の村。<br>泊まる・組む・祭る。本人の声で、ご覧ください。</p>
+    <button class="go" id="goBtn" data-en="▶ Watch with narration">▶ 本人の声で観る</button>
     <div class="muted-note">音が出ます / sound on · 本人クローン声 (Koe)</div>
   </div>
 </div>
@@ -141,9 +180,9 @@ footer{padding:40px 20px;text-align:center;color:var(--dim);font-size:12px;borde
 
 <section id="meaning">
   <div class="wrap">
-    <div class="eyebrow">The Meaning · 六芒星の意味</div>
-    <h2>六芒星は、二つの三角が重なる形。</h2>
-    <p class="lead">のぼる三角は <b style="color:var(--gold)">創る</b>（体・頭・祭）。くだる三角は <b style="color:var(--snow)">癒す</b>（泊・食・癒）。
+    <div class="eyebrow" data-en="The Meaning">The Meaning · 六芒星の意味</div>
+    <h2 data-en="The hexagram is two overlapping triangles.">六芒星は、二つの三角が重なる形。</h2>
+    <p class="lead" data-en="The rising triangle <b style='color:var(--gold)'>creates</b> (Body · Mind · Festival). The falling triangle <b style='color:var(--snow)'>heals</b> (Stay · Eat · Heal). Six points hold all of living. A fire is always at the center.">のぼる三角は <b style="color:var(--gold)">創る</b>（体・頭・祭）。くだる三角は <b style="color:var(--snow)">癒す</b>（泊・食・癒）。
     六つの頂点に、暮らしのすべてを置く。中心には、いつも火がある。</p>
     <div class="grid cols-3">
       <div class="card"><h3>体 — 道場</h3><p>柔術。体の一本を組む大ドーム道場。</p></div>
@@ -158,22 +197,22 @@ footer{padding:40px 20px;text-align:center;color:var(--dim);font-size:12px;borde
 
 <section id="scale">
   <div class="wrap">
-    <div class="eyebrow">Scale · 拡張も、自然に</div>
-    <h2>一棟が、村になる。村が、また六芒星になる。</h2>
-    <p class="lead">同じ六芒星キャビンを増やすだけ。構法もパースもコストも使い回せるから、安く積み上がる。</p>
+    <div class="eyebrow" data-en="Scale · grows naturally">Scale · 拡張も、自然に</div>
+    <h2 data-en="One cabin becomes a village. The village becomes a hexagram.">一棟が、村になる。村が、また六芒星になる。</h2>
+    <p class="lead" data-en="Just add the same hexagram cabin. The method, the renders, the cost all carry over — so it scales up cheaply.">同じ六芒星キャビンを増やすだけ。構法もパースもコストも使い回せるから、安く積み上がる。</p>
     <table>
-      <tr><th>フェーズ</th><th>構成</th><th>収容</th></tr>
-      <tr><td><b>初期</b></td><td>六芒星キャビン 1棟（6ポッド＋火の間）</td><td><span class="num">約10人</span></td></tr>
-      <tr><td><b>拡張</b></td><td>同型キャビン6棟＋中心ドーム道場</td><td><span class="num">約60人</span></td></tr>
-      <tr><td><b>将来</b></td><td>外周6棟＋温泉・食堂（村全体が六芒星）</td><td><span class="num">約100人</span></td></tr>
+      <tr><th data-en="Phase">フェーズ</th><th data-en="Composition">構成</th><th data-en="Capacity">収容</th></tr>
+      <tr><td><b data-en="Start">初期</b></td><td data-en="1 hexagram cabin (6 pods + fire hall)">六芒星キャビン 1棟（6ポッド＋火の間）</td><td><span class="num" data-en="~10">約10人</span></td></tr>
+      <tr><td><b data-en="Expand">拡張</b></td><td data-en="6 cabins + central dome dojo">同型キャビン6棟＋中心ドーム道場</td><td><span class="num" data-en="~60">約60人</span></td></tr>
+      <tr><td><b data-en="Future">将来</b></td><td data-en="Outer 6 cabins + onsen & dining (the whole village a hexagram)">外周6棟＋温泉・食堂（村全体が六芒星）</td><td><span class="num" data-en="~100">約100人</span></td></tr>
     </table>
   </div>
 </section>
 
 <section id="living">
   <div class="wrap">
-    <div class="eyebrow">Living · 暮らしの風景</div>
-    <h2>泊まる・癒す・集う。六つの頂点の、一日。</h2>
+    <div class="eyebrow" data-en="Living">Living · 暮らしの風景</div>
+    <h2 data-en="Stay, heal, gather. A day across the six points.">泊まる・癒す・集う。六つの頂点の、一日。</h2>
     <div class="grid cols-3" style="margin-top:32px">
       <div class="card" style="padding:0;overflow:hidden">
         <img src="img/room.png" alt="六芒星キャビンの客室">
@@ -193,9 +232,9 @@ footer{padding:40px 20px;text-align:center;color:var(--dim);font-size:12px;borde
 
 <section id="bim">
   <div class="wrap">
-    <div class="eyebrow">Render × BIM · パースとBIMが、一緒になる</div>
-    <h2>完成イメージと、実モデル。同じ枠で、切り替える。</h2>
-    <p class="lead">夢（パース）と、建つ証拠（<a href="https://bim.house" target="_blank" rel="noopener">bim.house</a> のBIM）を、同じ画面に重ねる。
+    <div class="eyebrow" data-en="Render × BIM · the render and the model, together">Render × BIM · パースとBIMが、一緒になる</div>
+    <h2 data-en="The render and the real model — switch in one frame.">完成イメージと、実モデル。同じ枠で、切り替える。</h2>
+    <p class="lead" data-en="Overlay the dream (render) and the proof it can be built (BIM on <a href='https://bim.house' target='_blank' rel='noopener'>bim.house</a>) in one screen. <b style='color:var(--gold)'>Whole</b> = the full 16-building village layout (structure <span class='pass'>PASS</span>); <b style='color:var(--snow)'>Single</b> = the cabin you build (houki & structure both <span class='pass'>PASS</span>).">夢（パース）と、建つ証拠（<a href="https://bim.house" target="_blank" rel="noopener">bim.house</a> のBIM）を、同じ画面に重ねる。
     <b style="color:var(--gold)">一体</b>＝村全体の配置（16棟・構造 <span class="pass">PASS</span>）、<b style="color:var(--snow)">個別</b>＝建てる1棟（houki・構造ともに <span class="pass">PASS</span>）。</p>
 
     <div class="bimwrap">
@@ -218,8 +257,8 @@ footer{padding:40px 20px;text-align:center;color:var(--dim);font-size:12px;borde
 
 <section id="craft">
   <div class="wrap">
-    <div class="eyebrow">Craft & Cost · 安く、世界品質で</div>
-    <h2>籾殻SIPs＋くん炭＋焼杉。寒冷地仕様で、安く、強く。</h2>
+    <div class="eyebrow" data-en="Craft & Cost · cheap, world-class">Craft & Cost · 安く、世界品質で</div>
+    <h2 data-en="Rice-husk SIPs + charcoal + charred cedar. Cold-climate spec — cheap and strong.">籾殻SIPs＋くん炭＋焼杉。寒冷地仕様で、安く、強く。</h2>
     <div class="grid cols-3">
       <div class="card"><div class="big">PASS</div><h3>建築基準法 houki</h3><p>bim.house がその場で判定。NG項目ゼロ。</p></div>
       <div class="card"><div class="big">PASS</div><h3>構造 簡易検定</h3><p>偏心率・剛性率・柱梁チェック通過。</p></div>
@@ -230,8 +269,8 @@ footer{padding:40px 20px;text-align:center;color:var(--dim);font-size:12px;borde
 
 <section id="revenue">
   <div class="wrap">
-    <div class="eyebrow">Revenue · 販売も、自然に</div>
-    <h2>町から取らず、町に流す。外から経済を呼び込む。</h2>
+    <div class="eyebrow" data-en="Revenue · selling, naturally">Revenue · 販売も、自然に</div>
+    <h2 data-en="Don't take from the town — flow into it. Draw the economy in from outside.">町から取らず、町に流す。外から経済を呼び込む。</h2>
     <div class="grid cols-2">
       <div class="card"><h3>① 宿泊（民泊）</h3><p>六芒星キャビンを1棟貸し／村貸し。10人→100人にスケール。</p></div>
       <div class="card"><h3>② 音楽フェス・イベント</h3><p>火を囲むステージ。チケット＋物販。冬のオーロラ回。</p></div>
@@ -240,7 +279,7 @@ footer{padding:40px 20px;text-align:center;color:var(--dim);font-size:12px;borde
     </div>
 
     <div class="legal">
-      <b>🔴 本予約・公開の前に — 法務ゲート（未クリア）</b>
+      <b data-en="🔴 Before booking or public launch — legal gates (not yet cleared)">🔴 本予約・公開の前に — 法務ゲート（未クリア）</b>
       <ul>
         <li>建築確認申請＋構造判定（簡易検定は通過済／詳細計算は構造設計者が必要）</li>
         <li>旅館業（簡易宿所）許可 — 許可前は宿泊の本予約・決済不可（事前相談まで）</li>
@@ -252,17 +291,18 @@ footer{padding:40px 20px;text-align:center;color:var(--dim);font-size:12px;borde
 </section>
 
 <div class="cta">
-  <h2>白から、組む。</h2>
-  <p class="lead" style="margin:18px auto 0">泊まって、組んで、祭る。<br>世界の誰が見ても通用する村を、弟子屈から。</p>
+  <h2 data-en="From white, we build.">白から、組む。</h2>
+  <p class="lead" style="margin:18px auto 0" data-en="Stay, grapple, celebrate.<br>A village that holds up to the whole world — from Teshikaga.">泊まって、組んで、祭る。<br>世界の誰が見ても通用する村を、弟子屈から。</p>
   <div class="row">
-    <a class="btn fire" href="https://bim.house/u-house-bje402lx" target="_blank" rel="noopener">個別棟を見る (BIM)</a>
-    <a class="btn ghost" href="https://bim.house/u-house-bvl4dcg8" target="_blank" rel="noopener">村の中心を見る (BIM)</a>
+    <a class="btn fire" href="https://bim.house/u-house-bje402lx" target="_blank" rel="noopener" data-en="See a single cabin (BIM)">個別棟を見る (BIM)</a>
+    <a class="btn ghost" href="https://bim.house/u-100-sps7g2ip" target="_blank" rel="noopener" data-en="See the whole village (BIM)">村の中心を見る (BIM)</a>
   </div>
 </div>
 
 <footer>
-  六芒星の村 / 弟子屈・美留和 — 概念設計。パースは生成イメージ、BIMは bim.house 実データ（houki/構造 PASS）。<br>
-  本予約・公開は法務ゲートのクリア後。ナレーション＝本人クローン声（Koe）。
+  <span data-en="Hexagram Village / Teshikaga · Miruwa — concept design. Renders are generated images; BIM is real bim.house data (houki/structure PASS).">六芒星の村 / 弟子屈・美留和 — 概念設計。パースは生成イメージ、BIMは bim.house 実データ（houki/構造 PASS）。</span><br>
+  <span data-en="Booking & public launch only after the legal gates. Narration = personal clone voice (Koe).">本予約・公開は法務ゲートのクリア後。ナレーション＝本人クローン声（Koe）。</span>
+  <div style="margin-top:10px;opacity:.7" id="updated"></div>
 </footer>
 
 <script>
@@ -350,6 +390,33 @@ document.querySelectorAll('.bimcol.pb').forEach(col=>{
     };
   });
 });
+
+// ---------- i18n: 日本語 / English ----------
+const RELEASED = '2026-06-19';
+function fmtDate(l){
+  try{ return new Intl.DateTimeFormat(l==='en'?'en-US':'ja-JP',
+    {year:'numeric',month:'long',day:'numeric'}).format(new Date(RELEASED)); }
+  catch(e){ return RELEASED; }
+}
+function applyLang(l){
+  document.documentElement.lang = l;
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    if(el.dataset.ja === undefined) el.dataset.ja = el.innerHTML;
+    el.innerHTML = (l==='en') ? el.dataset.en : el.dataset.ja;
+  });
+  document.getElementById('langToggle').textContent = (l==='en') ? '日本語' : 'EN';
+  const u = document.getElementById('updated');
+  if(u) u.textContent = (l==='en'? 'Updated ' : '更新 ') + fmtDate(l);
+  try{ localStorage.setItem('lang', l); }catch(e){}
+}
+let curLang = (new URLSearchParams(location.search).get('lang')
+  || (function(){try{return localStorage.getItem('lang');}catch(e){return null;}})()
+  || (navigator.language||'ja').slice(0,2));
+curLang = (curLang === 'en') ? 'en' : 'ja';
+document.getElementById('langToggle').onclick = ()=>{
+  curLang = (curLang === 'en') ? 'ja' : 'en'; applyLang(curLang);
+};
+applyLang(curLang);
 </script>
 </body>
 </html>
