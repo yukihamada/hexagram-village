@@ -69,6 +69,15 @@ h2{font-size:clamp(24px,4.6vw,40px);font-weight:800;letter-spacing:.02em;line-he
 .card .big{font-size:30px;font-weight:800;color:var(--fire)}
 .card p{color:var(--dim);font-size:14px}
 .card .price{color:var(--gold);font-size:15px;margin-top:10px}
+.wordbox{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.wordbox input{flex:1;min-width:240px;background:#0e0f14;border:1px solid var(--line);border-radius:12px;
+  color:var(--ink);font-size:16px;padding:15px 18px;font-family:inherit}
+.wordbox input:focus{outline:none;border-color:var(--gold)}
+.wordbox button{background:var(--fire);color:#1a0d04;font-weight:800;border:none;border-radius:12px;
+  padding:15px 24px;font-size:15px;cursor:pointer;white-space:nowrap;transition:.2s}
+.wordbox button:hover{transform:translateY(-2px)}
+.example{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:8px}
+.example b{color:var(--snow)}
 .card .price b{font-size:19px;color:var(--ink)}
 .pt{display:flex;gap:12px;align-items:baseline}
 .pt b{color:var(--gold);font-size:13px;letter-spacing:.1em;min-width:2.6em}

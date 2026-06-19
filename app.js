@@ -100,6 +100,21 @@ document.querySelectorAll('.bimcol.pb').forEach(col=>{
   });
 });
 
+// ---------- 言葉から建つ: bim.house を開く ----------
+(function(){
+  const inp = document.getElementById('wordInput');
+  const btn = document.getElementById('wordBtn');
+  const hint = document.getElementById('wordHint');
+  if(!btn) return;
+  function go(){
+    const t = (inp.value || '').trim();
+    window.open('https://bim.house', '_blank', 'noopener');
+    if(t && hint){ hint.textContent = '「'+t+'」— この言葉を bim.house に打って、村の一棟を建ててみよう。'; }
+  }
+  btn.addEventListener('click', go);
+  inp.addEventListener('keydown', e=>{ if(e.key==='Enter') go(); });
+})();
+
 // ---------- i18n: 日本語 / English ----------
 const RELEASED = '2026-06-19';
 function fmtDate(l){
