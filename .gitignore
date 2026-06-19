@@ -10,3 +10,7 @@
 # os / scratch
 .DS_Store
 shot_*.png
+
+# 動画は配信/リポジトリ対象外(Pages 25MB上限)
+video/
+*.mp4
