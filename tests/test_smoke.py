@@ -40,8 +40,9 @@ ok("Cache-Control", "Cache-Control" in hdr)
 ok("frame-src bim.house 許可", "frame-src https://bim.house" in hdr)
 
 # --- 紙芝居 / 構造 (app.js) ---
-ok("8場面のSCENES", len(re.findall(r"au:'audio/s\d\.mp3'", js)) == 8)
-ok("本人声 audio 参照", "audio/s0.mp3" in js and "audio/s7.mp3" in js)
+ok("9場面のSCENES", len(re.findall(r"au:'audio/s\d\.mp3'", js)) == 9)
+ok("本人声 audio 参照", "audio/s0.mp3" in js and "audio/s7.mp3" in js and "audio/s8.mp3" in js)
+ok("ハイブリッド場面(六角×六芒星)", "hybrid_aerial.png" in js and "六角" in js)
 ok("i18n 言語トグル", "data-en" in html and 'id="langToggle"' in html and "applyLang" in js)
 ok("パース×BIM トグル", 'class="bimcol pb"' in html and 'data-m="bim"' in html)
 ok("BIM 一体(村全体16棟)", "u-100-sps7g2ip" in html)

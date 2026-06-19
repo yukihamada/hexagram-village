@@ -3,6 +3,7 @@ const SCENES = [
   {svg:true,               kicker:'六芒星の意味', jp:'二つの三角。のぼる＝体・頭・祭。くだる＝泊・食・癒。', en:'Two triangles. Rising: Body·Mind·Festival. Falling: Stay·Eat·Heal.', au:'audio/s1.mp3'},
   {img:'img/cabin.png',    kicker:'初期 · 10人', jp:'はじまりは、一棟から。六つの頂点に、十人が眠る。', en:'It starts with one cabin. Six points, ten guests, a fire at the center.', au:'audio/s2.mp3'},
   {img:'img/village.png',  kicker:'将来 · 100人', jp:'増やすと、村そのものが、また六芒星になる。', en:'Add more, and the village itself becomes a hexagram. A hundred around one fire.', au:'audio/s3.mp3'},
+  {img:'img/hybrid_aerial.png', kicker:'かたち · 六角×六芒星', jp:'住むのは六角。空から見れば、村はずっと六芒星のまま。', en:'A hexagon to live in. From the sky, the village stays a hexagram.', au:'audio/s8.mp3'},
   {img:'img/dome.png',     kicker:'中心 · 火と道場', jp:'村の中心は、火と、大きなドームの道場。', en:'At the heart: fire and a great dome dojo. On the tatami, we grapple.', au:'audio/s4.mp3'},
   {img:'img/festival.png', kicker:'祭 · 音楽フェス', jp:'夜は、火を囲んでステージが立つ。村は祭になる。', en:'At night a stage rises around the fire. The village becomes a festival.', au:'audio/s5.mp3'},
   {img:'img/meaning.png',  kicker:'BIM · 一体と個別', jp:'村全体と一棟を、同じ画面で。法規もその場で判定。', en:'Whole village and single cabin on one screen. Code checked on the spot.', au:'audio/s6.mp3'},
