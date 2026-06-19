@@ -46,11 +46,16 @@ const dotNodes = [...document.querySelectorAll('.dots i')];
 const au = document.getElementById('au');
 let cur = -1, playing = false;
 
+const counterEl = document.getElementById('counter');
+const pbarFill = document.getElementById('pbarfill');
+let ended = false;
 function show(i){
   if(i<0||i>=SCENES.length) return;
-  cur = i;
+  cur = i; ended = false;
   sceneNodes.forEach((n,k)=>n.classList.toggle('on',k===i));
   dotNodes.forEach((n,k)=>n.classList.toggle('on',k===i));
+  if(counterEl) counterEl.textContent = (i+1)+' / '+SCENES.length;
+  if(pbarFill) pbarFill.style.width = ((i+1)/SCENES.length*100)+'%';
   // restart Ken Burns
   const img = sceneNodes[i].querySelector('.bg');
   if(img){img.style.animation='none'; void img.offsetWidth; img.style.animation='';}
@@ -60,16 +65,27 @@ function show(i){
 function play(){ playing=true; document.getElementById('toggle').textContent='⏸'; au.play().catch(()=>{}); }
 function pause(){ playing=false; document.getElementById('toggle').textContent='▶'; au.pause(); }
 
-au.addEventListener('ended', ()=>{ if(cur < SCENES.length-1){ show(cur+1); } else { pause(); } });
-document.getElementById('next').onclick = ()=> show(Math.min(cur+1,SCENES.length-1));
-document.getElementById('prev').onclick = ()=> show(Math.max(cur-1,0));
-document.getElementById('toggle').onclick = ()=> playing ? pause() : (play());
+au.addEventListener('ended', ()=>{ if(cur < SCENES.length-1){ show(cur+1); } else { ended = true; pause(); document.getElementById('toggle').textContent='↻'; } });
+function goNext(){ if(cur < SCENES.length-1) show(cur+1); }
+function goPrev(){ show(Math.max(cur-1,0)); }
+function togglePlay(){ if(ended){ play(); show(0); } else playing ? pause() : play(); }
+document.getElementById('next').onclick = goNext;
+document.getElementById('prev').onclick = goPrev;
+document.getElementById('toggle').onclick = togglePlay;
 dotNodes.forEach(d=> d.onclick = ()=> show(+d.dataset.i));
 
-document.getElementById('goBtn').onclick = ()=>{
-  document.getElementById('start').style.display='none';
-  playing = true; show(0);
-};
+const startEl = document.getElementById('start');
+function startShow(){ startEl.style.display='none'; playing = true; show(0); }
+document.getElementById('goBtn').onclick = startShow;
+
+// キーボード操作（← → / Space / Enter）
+document.addEventListener('keydown', e=>{
+  if(['INPUT','TEXTAREA'].includes(document.activeElement?.tagName)) return;
+  const onStart = startEl.style.display !== 'none';
+  if(e.key==='ArrowRight'){ e.preventDefault(); onStart ? startShow() : goNext(); }
+  else if(e.key==='ArrowLeft'){ if(!onStart){ e.preventDefault(); goPrev(); } }
+  else if(e.key===' '||e.key==='Enter'){ e.preventDefault(); onStart ? startShow() : togglePlay(); }
+});
 
 // パース ⇄ BIM トグル
 document.querySelectorAll('.bimcol.pb').forEach(col=>{
