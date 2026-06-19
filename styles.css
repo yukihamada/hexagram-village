@@ -78,6 +78,9 @@ h2{font-size:clamp(24px,4.6vw,40px);font-weight:800;letter-spacing:.02em;line-he
 .wordbox button:hover{transform:translateY(-2px)}
 .example{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:8px}
 .example b{color:var(--snow)}
+.film-video{width:100%;border-radius:16px;border:1px solid var(--line);margin-top:8px;background:#000;display:block}
+.dlbtn{display:inline-block;margin-top:16px;background:var(--fire);color:#1a0d04;font-weight:800;
+  padding:13px 24px;border-radius:40px;font-size:15px}
 .card .price b{font-size:19px;color:var(--ink)}
 .pt{display:flex;gap:12px;align-items:baseline}
 .pt b{color:var(--gold);font-size:13px;letter-spacing:.1em;min-width:2.6em}
