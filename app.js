@@ -6,6 +6,9 @@ const SCENES = [
   {img:'img/hybrid_aerial.png', kicker:'かたち · 六角×六芒星', jp:'住むのは六角。空から見れば、村はずっと六芒星のまま。', en:'A hexagon to live in. From the sky, the village stays a hexagram.', au:'audio/s8.mp3'},
   {img:'img/dome.png',     kicker:'中心 · 火と道場', jp:'村の中心は、火と、大きなドームの道場。', en:'At the heart: fire and a great dome dojo. On the tatami, we grapple.', au:'audio/s4.mp3'},
   {img:'img/festival.png', kicker:'祭 · 音楽フェス', jp:'夜は、火を囲んでステージが立つ。村は祭になる。', en:'At night a stage rises around the fire. The village becomes a festival.', au:'audio/s5.mp3'},
+  {img:'img/mufes_runway.png', kicker:'MU FES · 10/28', jp:'十月二十八日、MU FES。火を囲むランウェイで、AIが毎時生んだ一点ものを着る。', en:'Oct 28 — MU FES. On a fire-lit runway, wear the one-of-a-kind pieces MU’s AI makes by the hour.', au:'audio/f1.mp3'},
+  {img:'img/mufes_crowd.png', kicker:'MU FES · 着て踊る', jp:'オーロラの下、火と音楽。着て、踊って、整う。AIが企画し、責任は人が持つ。', en:'Under the aurora: fire and music. Wear, dance, be tempered. Planned by AI, owned by a human.', au:'audio/f2.mp3'},
+  {img:'img/mufes_apparel.png', kicker:'MU FES · 世界へ', jp:'弟子屈の夜から、翌日のハワイへ。地球の両端で、同じ火を囲む。', en:'From a Teshikaga night to a Hawaii day — the same fire, on opposite ends of the earth.', au:'audio/f3.mp3'},
   {img:'img/meaning.png',  kicker:'BIM · 一体と個別', jp:'村全体と一棟を、同じ画面で。法規もその場で判定。', en:'Whole village and single cabin on one screen. Code checked on the spot.', au:'audio/s6.mp3'},
   {img:'img/hero.png',     kicker:'白から、組む。', jp:'安く、早く、世界品質で。泊まって、組んで、祭る。', en:'Cheap, fast, world-class. Stay, grapple, celebrate.', au:'audio/s7.mp3'},
 ];
